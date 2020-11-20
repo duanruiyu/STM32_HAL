@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"tim_and_usart\startup_stm32f103xe.o"
+"tim_and_usart\main.o"
+"tim_and_usart\gpio.o"
+"tim_and_usart\tim.o"
+"tim_and_usart\usart.o"
+"tim_and_usart\stm32f1xx_it.o"
+"tim_and_usart\stm32f1xx_hal_msp.o"
+"tim_and_usart\stm32f1xx_hal_gpio_ex.o"
+"tim_and_usart\stm32f1xx_hal_tim.o"
+"tim_and_usart\stm32f1xx_hal_tim_ex.o"
+"tim_and_usart\stm32f1xx_hal.o"
+"tim_and_usart\stm32f1xx_hal_rcc.o"
+"tim_and_usart\stm32f1xx_hal_rcc_ex.o"
+"tim_and_usart\stm32f1xx_hal_gpio.o"
+"tim_and_usart\stm32f1xx_hal_dma.o"
+"tim_and_usart\stm32f1xx_hal_cortex.o"
+"tim_and_usart\stm32f1xx_hal_pwr.o"
+"tim_and_usart\stm32f1xx_hal_flash.o"
+"tim_and_usart\stm32f1xx_hal_flash_ex.o"
+"tim_and_usart\stm32f1xx_hal_exti.o"
+"tim_and_usart\stm32f1xx_hal_uart.o"
+"tim_and_usart\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "TIM_AND_USART\TIM_AND_USART.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "TIM_AND_USART.map" -o TIM_AND_USART\TIM_AND_USART.axf
