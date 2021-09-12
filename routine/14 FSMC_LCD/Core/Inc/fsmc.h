@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -39,7 +39,6 @@ extern SRAM_HandleTypeDef hsram1;
 void MX_FSMC_Init(void);
 void HAL_SRAM_MspInit(SRAM_HandleTypeDef* hsram);
 void HAL_SRAM_MspDeInit(SRAM_HandleTypeDef* hsram);
-
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */

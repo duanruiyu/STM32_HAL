@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -22,11 +22,10 @@
 #include "usart.h"
 #include "gpio.h"
 #include "fsmc.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tftlcd.h"
 #include "stdio.h"
+#include "lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,26 +87,23 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  HAL_SRAM_MspInit(&hsram1);
   MX_FSMC_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  TFTLCD_Init();	
-  FRONT_COLOR=BLACK;
-  LCD_ShowString(10,10,240,400,12,(uint8_t*)"TFTLCD Testing...!");
-  FRONT_COLOR=RED;
-  LCD_ShowString(10,30,240,400,16,(uint8_t*)"TFTLCD Testing...!");
-  FRONT_COLOR=GREEN;
-  LCD_ShowString(10,50,240,400,24,(uint8_t*)"TFTLCD Testing...!");	
+  LCD_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-				
-		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_0);
-		HAL_Delay(200);
-		
+		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
+		HAL_Delay(500);
+		LCD_Clear(BLACK);
+		POINT_COLOR=RED;	  
+		LCD_ShowString(30,40,210,32,32,"meimeidai");	
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -133,7 +129,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL8;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
