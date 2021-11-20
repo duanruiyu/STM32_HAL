@@ -1,2 +1,2 @@
 # embedded-system
-Embedded some kind of learning process, and some of his own ideas
+嵌入式的学习过程，以及个人在学习过程中的例程
